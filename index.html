@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação Oficial — App Rastreio WMS</title>
+    <style>
+        body {
+            background-color: #12141d;
+            color: #a1a1aa;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #272a37;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #71717a;
+            margin: 5px 0 0 0;
+        }
+
+        .author {
+            font-size: 12px;
+            color: #3b82f6;
+            margin-top: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .email {
+            font-size: 11px;
+            color: #71717a;
+            margin-top: 4px;
+        }
+
+        .card {
+            background: #1c202d;
+            border: 1px solid #272a37;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        strong {
+            color: #e4e4e7;
+        }
+
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            border-left: 3px solid #272a37;
+            padding-left: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover {
+            border-left-color: #3b82f6;
+        }
+
+        .step-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #71717a;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .step-desc code {
+            background: #272a37;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #eab308;
+            font-family: monospace;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s, transform 0.1s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #272a37;
+            border: 1px solid #3f4455;
+            color: #e4e4e7;
+        }
+
+        .btn-secondary:hover {
+            background: #323746;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #44475a;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <h1>⚡ App Rastreio</h1>
+            <p>Monitor de Totes & Status Integrado</p>
+            <div class="author">Criado por: Jefferson Fortunato Alves de Oliveira</div>
+            <div class="email">jefferson.fortunato@mercadolivre.com</div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Sobre o Aplicativo</h2>
+            <ul>
+                <li><strong>Integração Direta (WMS + SAGA):</strong> O aplicativo se conecta à API interna do SAGA, trazendo os eventos em tempo real para a mesma tela do WMS, eliminando a necessidade de buscar em outras abas.</li>
+                <li><strong>Auto-Preenchimento Manual:</strong> Na aba de inserção manual, basta colar o código da TOTE pura. O app faz a busca invisível e preenche a Localização, o Aging e o ETD nativamente para você.</li>
+                <li><strong>Cópia Inteligente para o Sheets:</strong> Botão exclusivo que formata os dados para o Google Sheets. Ao colar na planilha, os dados caem perfeitamente divididos nas colunas de forma automática.</li>
+                <li><strong>Motor em Nuvem:</strong> O aplicativo recebe atualizações de melhorias automaticamente de forma silenciosa via GitHub.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🛠️ Passo a Passo para Instalação</h2>
+            <div class="step-container">
+                
+                <div class="step">
+                    <div class="step-title">Passo 1: Instalar e Configurar o "Motor"</div>
+                    <div class="step-desc">
+                        O navegador precisa do Tampermonkey para rodar o painel no WMS. Após a instalação, <strong>é obrigatório</strong> configurar o modo desenvolvedor:<br><br>
+                        1. Instale a extensão no botão abaixo.<br>
+                        2. Abra uma nova aba e digite <code>chrome://extensions</code><br>
+                        3. No canto superior direito, ative a chave <strong>"Modo do desenvolvedor"</strong>. Se não fizer isso, o Chrome bloqueará o App!
+                    </div>
+                    <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank" class="btn btn-secondary">1. Instalar Tampermonkey no Chrome</a>
+                </div>
+
+                <div class="step">
+                    <div class="step-title">Passo 2: Ativar o Aplicativo Oficial</div>
+                    <div class="step-desc">Com a extensão instalada e o Modo Desenvolvedor ativo, clique no botão abaixo. Uma tela do Tampermonkey vai se abrir, basta clicar no botão verde <strong>"Instalar"</strong> (ou "Atualizar").</div>
+                    
+                    <a href="https://gist.github.com/JeffersonFortunato30/57ce23eef28e13abc8dd44bbd2b9f904/raw/app-rastreio.user.js" class="btn">2. Ativar Aplicativo de Rastreio</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            Dashboard Corporativo • Uso Interno Autorizado
+        </div>
+
+    </div>
+
+</body>
+</html>
